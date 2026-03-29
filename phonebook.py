@@ -128,3 +128,16 @@ while True:
         break
 
 
+conn = get_connection()
+cur = conn.cursor()
+
+cur.execute("SELECT * FROM search_contacts(%s)", ('Dan',))
+rows = cur.fetchall()
+
+for r in rows:
+    print(r)
+
+cur.close()
+conn.close()
+
+
